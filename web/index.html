@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calorie Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🥗 NutriLog</div>
+    <p class="tagline">track what you eat. own how you feel.</p>
+  </header>
+
+  <main>
+
+    <!-- Input Section -->
+    <section class="input-card">
+      <h2>Add Food</h2>
+
+      <div class="field">
+        <label for="foodInput">Food Item</label>
+        <div class="input-row">
+          <input type="text" id="foodInput" placeholder="e.g. chicken breast, rice, egg…" autocomplete="off"/>
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="amountInput">Amount <span>(grams)</span></label>
+        <input type="number" id="amountInput" placeholder="e.g. 150" min="1"/>
+      </div>
+
+      <button id="addBtn" onclick="addFood()">+ Add to Log</button>
+      <p id="errorMsg" class="error"></p>
+    </section>
+
+    <!-- Totals Bar -->
+    <section class="totals-bar">
+      <div class="total-pill" id="totalCal">
+        <span class="val">0</span>
+        <span class="unit">kcal</span>
+        <span class="label">Calories</span>
+      </div>
+      <div class="total-pill" id="totalProt">
+        <span class="val">0</span>
+        <span class="unit">g</span>
+        <span class="label">Protein</span>
+      </div>
+      <div class="total-pill" id="totalCarb">
+        <span class="val">0</span>
+        <span class="unit">g</span>
+        <span class="label">Carbs</span>
+      </div>
+      <div class="total-pill" id="totalFat">
+        <span class="val">0</span>
+        <span class="unit">g</span>
+        <span class="label">Fat</span>
+      </div>
+    </section>
+
+    <!-- Macro Visual Bar -->
+    <section class="macro-bar-section">
+      <p class="macro-label">Macro Split</p>
+      <div class="macro-bar">
+        <div class="bar-protein" id="barProtein" style="width:0%">P</div>
+        <div class="bar-carbs"   id="barCarbs"   style="width:0%">C</div>
+        <div class="bar-fat"     id="barFat"     style="width:0%">F</div>
+      </div>
+    </section>
+
+    <!-- Food Log -->
+    <section class="log-section">
+      <div class="log-header">
+        <h2>Today's Log</h2>
+        <button onclick="clearLog()" class="clear-btn">Clear All</button>
+      </div>
+      <div id="logList" class="log-list">
+        <p class="empty-state">No foods added yet. Start tracking above ↑</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Java Note Banner -->
+  <div class="java-note">
+    <strong>⚙️ Java CLI Version:</strong> Compile & run <code>src/CalorieTracker.java</code> in your terminal for the full backend experience.
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
